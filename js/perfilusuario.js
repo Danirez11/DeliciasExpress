@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Cargar datos del usuario
   try {
-    const res = await fetch(`http://127.0.0.1:8000/usuarios/${usuario.id}`);
+    const res = await fetch(`https://deliciasexpress-1.onrender.com/usuarios/${usuario.id}`);
     const data = await res.json();
 
     if (data.usuario) {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const password = document.getElementById('password').value.trim();
 
     try {
-      const res = await fetch(`http://127.0.0.1:8000/usuarios/${usuario.id}`, {
+      const res = await fetch(`https://deliciasexpress-1.onrender.com/usuarios/${usuario.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre, telefono, correo, password })

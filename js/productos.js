@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const modalEditar = new bootstrap.Modal(document.getElementById('modalEditarProducto'));
+const API_URL = 'https://deliciasexpress-1.onrender.com';
 
 const usuarioLogueado = () => !!localStorage.getItem('usuario');
 
@@ -20,7 +21,7 @@ const cargarProductos = async () => {
   if (!tbody) return;
   tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted">Cargando productos...</td></tr>';
   try {
-    const res = await fetch('http://127.0.0.1:8000/productos/');
+    const res = await fetch(`${API_URL}/productos`);
     const data = await res.json();
     tbody.innerHTML = '';
     if (Array.isArray(data.productos) && data.productos.length > 0) {
@@ -80,7 +81,7 @@ document.getElementById('formEditarProducto').addEventListener('submit', async (
   const mensajeDiv = document.getElementById('mensajeEditarProducto');
 
   try {
-    const res = await fetch(`http://127.0.0.1:8000/productos/${id}`, {
+    const res = await fetch(`${API_URL}/productos/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nombre, descripcion, precio, stock, imagen_url })
@@ -104,7 +105,7 @@ document.getElementById('formEditarProducto').addEventListener('submit', async (
 const eliminarProducto = async (id) => {
   if (!confirm('¿Seguro que deseas eliminar este producto?')) return;
   try {
-    const res = await fetch(`http://127.0.0.1:8000/productos/${id}`, { method: 'DELETE' });
+    const res = await fetch(`${API_URL}/productos/${id}`, { method: 'DELETE' });
     const data = await res.json();
     alert(data.mensaje || 'Producto eliminado');
     cargarProductos();
@@ -114,7 +115,7 @@ const eliminarProducto = async (id) => {
 };
 
 const agregarAlCarrito = (id, nombre) => {
-  fetch(`http://127.0.0.1:8000/productos/${id}`)
+  fetch(`${API_URL}/productos/${id}`)
     .then(res => res.json())
     .then(data => {
       if (data.producto) {
