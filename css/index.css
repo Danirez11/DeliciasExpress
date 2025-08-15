@@ -1,0 +1,18 @@
+.producto-img {
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.producto-img-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}

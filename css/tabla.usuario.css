@@ -1,0 +1,77 @@
+/* Layout vertical completo */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Estilo general de la tabla */
+.tabla-usuarios {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Encabezado */
+.tabla-usuarios thead {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+}
+
+/* Filas alternas */
+.tabla-usuarios tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Hover en filas */
+.tabla-usuarios tbody tr:hover {
+    background-color: #e2e6ea;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Botones de acción */
+.tabla-usuarios .btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #212529;
+}
+
+.tabla-usuarios .btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+}
+
+/* Mensajes de estado */
+.tabla-usuarios td.text-muted,
+.tabla-usuarios td.text-danger {
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* Formulario de edición */
+.form-editar-usuario {
+    background-color: #f1f1f1;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.mensaje-editar-usuario {
+    font-size: 0.95rem;
+}
+
+/* Responsive en pantallas pequeñas */
+@media (max-width: 768px) {
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
